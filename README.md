@@ -1,7 +1,9 @@
-# Modified to work in recent year
+# Modified to work in recent years
 
-- Add proper api.openweathermap.org app id in variables.ini
-- Fix media player to use newer webnowplaying plugin
+- Temperature & GPU usage monitoring uses HWiNFO Gadget registry (no plugin DLL or paid license needed)
+- GPU name detection uses PowerShell (wmic removed from modern Windows)
+- Media player uses WebNowPlaying plugin
+- Weather uses api.openweathermap.org (add your app id in variables.ini)
 - Old readme below
 
 ![SysDash Screenshot](http://marcopixel.eu/img/sysDash.png "SysDash Screenshot")
@@ -13,8 +15,9 @@ A simple and clean system monitor skin for Rainmeter.
 
 
 ## Minimum Requirements:
-- Windows 7 or higher.
+- Windows 10 or higher.
 - Rainmeter 4.2 (r3018 or higher).
+- [HWiNFO](https://www.hwinfo.com/download/) (for CPU/GPU temperatures & GPU usage).
 
 
 ## What's included:
@@ -33,10 +36,34 @@ The media player module supports all major media players, including **Spotify** 
 
 ## Important notes
 
-
 - You need at least **Rainmeter 4.2 (r3018) or higher** to get all features of this skin. You can find the newest version on https://www.rainmeter.net/
 - After installation you can access the settings by right-clicking on one of the skins then clicking on Open Settings.
 - If there are no skins loaded, you have to reinstall the skin and check if the layout is getting loaded after install.
+
+## Temperature & GPU usage setup (HWiNFO)
+
+The CPU/GPU temperature and GPU usage skins require **[HWiNFO](https://www.hwinfo.com/download/)** (free for personal use) running in the background. The skin reads sensor data from HWiNFO's **Gadget** registry reporting — no extra plugin DLLs or paid licenses needed.
+
+### Quick setup
+
+&nbsp;&nbsp;&nbsp;**1.** Install and launch [HWiNFO](https://www.hwinfo.com/download/) in **Sensors-only** mode.
+
+&nbsp;&nbsp;&nbsp;**2.** In the sensors window, click the **gear icon** (Settings) at the bottom.
+
+&nbsp;&nbsp;&nbsp;**3.** Go to the **HWiNFO Gadget** tab.
+
+&nbsp;&nbsp;&nbsp;**4.** For each sensor you want, **tick the checkbox** to enable reporting. At minimum enable:
+- Your **CPU Package** (or CPU Tctl/Tdie) temperature
+- Your **GPU Temperature**
+- Your **GPU Utilization** (for the GPU usage graph)
+
+&nbsp;&nbsp;&nbsp;**5.** Note the **index number** assigned to each (starting from 0).
+
+&nbsp;&nbsp;&nbsp;**6.** In SysDash, right-click any skin > **Open Settings** > **HWiNFO** tab, and enter those index numbers.
+
+&nbsp;&nbsp;&nbsp;**7.** Set HWiNFO to start with Windows (Settings > General > Auto Start).
+
+For a detailed walkthrough, see the [official Rainmeter HWiNFO guide](https://docs.rainmeter.net/tips/hwinfo/).
 
 ## Getting started
 
